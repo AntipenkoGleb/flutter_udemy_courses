@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() {
   runApp(QuizApp());
 }
@@ -12,6 +14,15 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Text('Hello!'));
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Quiz App')),
+        body: Column(
+          children: [
+            Question('Question'),
+          ],
+        ),
+      ),
+    );
   }
 }
