@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import 'answer.dart';
 
 void main() {
   runApp(QuizApp());
@@ -42,7 +43,15 @@ class _QuizAppState extends State<QuizApp> {
     },
   ];
 
-  final _questionIndex = 0;
+  var _questionIndex = 0;
+  var _totalScore = 0;
+
+  _onAnswerSelected(int score) {
+    setState(() {
+      _questionIndex++;
+      _totalScore += score;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +61,11 @@ class _QuizAppState extends State<QuizApp> {
         body: Column(
           children: [
             Question(_questions[_questionIndex]['question']),
+            ...(_questions[_questionIndex]['answers']
+                    as List<Map<String, Object>>)
+                .map((answer) => Answer(
+                    answer['answer'], () => _onAnswerSelected(answer['score'])))
+                .toList(),
           ],
         ),
       ),
