@@ -12,6 +12,38 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
+  final _questions = const [
+    {
+      'question': 'What\'s your favorite color?',
+      'answers': [
+        {'answer': 'Black', 'score': 10},
+        {'answer': 'White', 'score': 1},
+        {'answer': 'Blue', 'score': 4},
+        {'answer': 'Red', 'score': 6},
+      ],
+    },
+    {
+      'question': 'What\'s your favorite animal?',
+      'answers': [
+        {'answer': 'Rabbit', 'score': 10},
+        {'answer': 'Snake', 'score': 1},
+        {'answer': 'Lion', 'score': 4},
+        {'answer': 'Cat', 'score': 6},
+      ],
+    },
+    {
+      'question': 'What\'s your favorite color?',
+      'answers': [
+        {'answer': 'Black', 'score': 10},
+        {'answer': 'White', 'score': 1},
+        {'answer': 'Blue', 'score': 4},
+        {'answer': 'Red', 'score': 6},
+      ],
+    },
+  ];
+
+  final _questionIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +51,7 @@ class _QuizAppState extends State<QuizApp> {
         appBar: AppBar(title: Text('Quiz App')),
         body: Column(
           children: [
-            Question('Question'),
+            Question(_questions[_questionIndex]['question']),
           ],
         ),
       ),
