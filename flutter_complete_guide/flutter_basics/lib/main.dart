@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/quiz.dart';
 
 import './question.dart';
 import './answer.dart';
@@ -67,15 +68,10 @@ class _QuizAppState extends State<QuizApp> {
       home: Scaffold(
         appBar: AppBar(title: Text('Quiz App')),
         body: _questionIndex < _questions.length
-            ? Column(
-                children: [
-                  Question(_questions[_questionIndex]['question']),
-                  ...(_questions[_questionIndex]['answers']
-                          as List<Map<String, Object>>)
-                      .map((answer) => Answer(answer['answer'],
-                          () => _onAnswerSelected(answer['score'])))
-                      .toList(),
-                ],
+            ? Quiz(
+                questions: _questions,
+                questionIndex: _questionIndex,
+                answerSelectHandler: _onAnswerSelected,
               )
             : Result(_totalScore, _onReset),
       ),

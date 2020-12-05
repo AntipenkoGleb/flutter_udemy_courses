@@ -28,18 +28,12 @@ class Result extends StatelessWidget {
         children: [
           Text(
             _resultPhrase,
-            style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           ),
           FlatButton(
             child: Text(
-              'resultQuiz',
-              style: TextStyle(
-                color: Colors.purple,
-                fontSize: 18,
-              ),
+              'reset Quiz',
+              style: TextStyle(color: Colors.purple, fontSize: 18),
             ),
             onPressed: _resetHandler,
           ),
